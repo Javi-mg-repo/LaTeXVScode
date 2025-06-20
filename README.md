@@ -1,4 +1,5 @@
-# LaTeXVScode
+# GUÍA PARA UTILIZAR VSCODE COMO ENTORNO LaTeX
+![Encabezado](src/repo.png)
 ---
 ## Paso 1
 Descargar `Texlive` o bien `Miktex`.
@@ -8,7 +9,7 @@ Si decides tener `Miktex` como tu distribución de TeX, debes saber que para Win
 Es posible que tengas que agregar `Perl` al PATH.
 
 ## Paso 2
-Instala [VScode](https://code.visualstudio.com/). Justo después, instala la extensión [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+Instala [VScode](https://code.visualstudio.com/). Justo después, instala la extensión [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop).
 
 ## Paso 3
 Pasemos a configurar un perfil para tener un buen editor LaTeX.
