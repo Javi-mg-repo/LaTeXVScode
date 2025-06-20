@@ -13,5 +13,5 @@ Instala [VScode](https://code.visualstudio.com/). Justo después, instala la ext
 ## Paso 3
 Pasemos a configurar un perfil para tener un buen editor LaTeX.
 
-- test1
-- test2
+- Descargar la extensión Code Spell Checker (en español o inglés).
+- Copiar el archivo [settings.json](/settings.json) en el tuyo original. Puedes encontrarlo `control`+`shift`+`p`, y escribiendo `Preferences: Open User Settings (JSON)`.
