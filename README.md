@@ -1,4 +1,4 @@
-# GUÍA PARA UTILIZAR VSCODE COMO ENTORNO LaTeX
+# GUÍA PARA INSTALAR VSCODE COMO ENTORNO LaTeX
 ![Encabezado](src/repo.png)
 ---
 ## Paso 1
