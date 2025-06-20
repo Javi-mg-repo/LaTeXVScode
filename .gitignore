@@ -45,7 +45,7 @@ _region*
 # Generalmente NO se quieren subir los PDFs compilados, ya que se generan.
 # ¡PERO! Si tu PDF final es un artefacto de la release y quieres controlarlo con Git LFS,
 # entonces elimina o comenta la línea de abajo.
-*.pdf     
+TFG.pdf     
 
 # --- Archivos específicos de algunos paquetes/herramientas ---
 *.run.xml   
