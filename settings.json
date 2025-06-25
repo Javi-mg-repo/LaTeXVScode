@@ -1,0 +1,14 @@
+{
+    "workbench.colorTheme": "Ayu Mirage",
+    "explorer.confirmDelete": false,
+    "workbench.productIconTheme": "fluent-icons",
+    "cSpell.language": "en,es-ES",
+    "editor.accessibilitySupport": "on",
+    "workbench.iconTheme": "symbols",
+
+    "[latex]": {
+        "editor.wordWrap": "on",
+        "editor.formatOnSave": true
+    },
+    "latex-workshop.formatting.latexindent.path": "latexindent"
+}

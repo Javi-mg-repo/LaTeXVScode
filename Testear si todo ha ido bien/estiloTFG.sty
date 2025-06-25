@@ -1,0 +1,153 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Formato para los Trabajos Fin de Grado
+% Grado en Matemáticas
+% Universidad de Almería
+% Versión 1.3 (01/09/2024)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{estiloTFG}[2024/09/01 TFG Grado en Matem{\'a}ticas]
+
+% Fuentes y tipos
+\RequirePackage{lmodern}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{kpfonts}
+
+% Matemáticas
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+
+% Manejo de las figuras
+\RequirePackage{graphicx}
+
+% Colores
+\RequirePackage[dvipsnames,svgnames,x11names]{xcolor}
+\definecolor{rojo}{rgb}{.647,.129,.149}
+
+
+% personalizacion de secciones
+\RequirePackage[topmarks,calcwidth,pagestyles,clearempty]{titlesec}
+\titleformat{\section}{\color{rojo}\Large\itshape}{\thesection}{1em}{}
+\titleformat{\subsection}{\color{rojo}\large\itshape}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\color{rojo}\itshape}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\color{rojo}\itshape}{\theparagraph}{1em}{}
+
+
+% Estilo de los capitulos
+\renewcommand*{\colorchapnum}{\color{rojo}}
+\renewcommand*{\colorchaptitle}{\color{rojo}}
+\chapterstyle{pedersen}
+
+% Nombre de los apéndices en castellano
+\renewcommand*{\appendixpagename}{Apéndices}
+\renewcommand*{\appendixtocname}{Apéndices}
+
+% Personalización de la tabla de contenidos
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+\RequirePackage{titletoc}
+\contentsmargin{0pt}
+\titlecontents{section}[1.8pc]%
+{\bfseries}%
+{\contentslabel[\thecontentslabel.]{1.8pc}}%
+{}%
+{\hfill \contentspage}%
+\titlecontents*{subsection}[1.8pc]%
+{\small}%
+{\thecontentslabel. }%
+{}
+{, \thecontentspage}%
+[.--- ][.]%
+
+% Tamaño de la página
+\RequirePackage[a4paper,left=2.5cm,right=2.5cm,top=3cm,bottom=2.5cm,footskip=0.75cm]{geometry}
+
+% Parametros de hyperref (salida PDF) 
+\RequirePackage[linktocpage,colorlinks=true,linkcolor=rojo,urlcolor=Blue4,citecolor=Blue4]{hyperref}
+\hypersetup{
+  pdftitle={TFG Grado en Matem{\'a}ticas},
+  pdfpagemode={UseOutlines},
+  pdfstartview={FitH}
+}
+
+% Personalización de los teoremas
+\newtheorem{definicion}{Definici{\'o}n}[chapter]
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{lema}{Lema}[chapter]
+\newtheorem{proposicion}{Proposici{\'o}n}[chapter]
+\newtheorem{corolario}{Corolario}[chapter]
+
+
+% Entorno de demostración
+\newenvironment{demo}{%
+  \par\noindent%
+  \textsf{\underline{Demostraci{\'o}n:}}%
+    \par%
+    \sffamily%
+  }%
+  {\par\hfill $\blacksquare$%
+}%
+
+% Separación entre párrafos
+\setlength\parskip{5pt}%
+
+
+% Diseño de portada
+\newcommand*{\portada}[7]{%
+  \rule{\textwidth}{1.6pt}
+  \\%
+  \vspace*{-\baselineskip}\vspace*{2pt}%
+  \rule{\textwidth}{0.4pt}%
+  \\[0.5\baselineskip]%
+  \textcolor{BrickRed}{\scshape \HUGE #1}%
+  \\[0.5\baselineskip]%
+  \rule{\textwidth}{0.4pt}%
+  \\[0.5\baselineskip]%
+  \textcolor{BrickRed}{\scshape \HUGE #2}%
+  \\[0.5\baselineskip]%
+  \rule{\textwidth}{0.4pt}%
+  \\%
+  \vspace*{-\baselineskip}\vspace{3.2pt}%
+  \rule{\textwidth}{1.6pt}%
+  \\[2\baselineskip]%
+  \textcolor{Blue4}{\scshape \Large Trabajo de Fin de Grado}%
+  \\%
+  \vspace*{2\baselineskip}%
+  #3:%
+  \\[0.5\baselineskip]%
+  {\LARGE #4}%
+  \\[\baselineskip]
+  #5:%
+  \\[0.3\baselineskip]%
+  {\large #6}%
+  \\[2\baselineskip]%
+  \textcolor{Blue4}{\scshape \Large Grado en Matem{\'a}ticas}%
+  \\[6\baselineskip]%
+  \includegraphics[height=4cm]{./imagenes/logo_facultad.pdf}%
+  \hfill%
+  \includegraphics[height=4cm]{./imagenes/escudo_ual.pdf}%
+  \\%
+  \vfill
+  \textcolor{Blue4}{\scshape #7} 
+  \\[5pt]
+  \textcolor{Blue4}{\large Universidad de Almer{\'{\i}}a}
+}
+
+% Texto de relleno
+\RequirePackage{lipsum}
+
+% Tablas con múltiples filas
+\RequirePackage{multirow}
+
+% Encabezados en versalita en las paginas pares
+\nouppercaseheads%
+
+% Patrones de guionado
+\RequirePackage[british,spanish]{babel}
+

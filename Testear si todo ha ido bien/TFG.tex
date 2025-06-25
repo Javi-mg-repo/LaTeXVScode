@@ -1,0 +1,330 @@
+\documentclass[a4paper,12pt,%
+%oneside 
+]{memoir}
+
+% Si se imprime a una cara, descomentar oneside
+
+% Si se trabaja en Unicode descomentar la siguiente l�nea
+%\usepackage[utf8]{inputenc}
+
+% Si se trabaja en formato ISO-8859-1 (Europa occidental)
+% descomentar la l�nea siguiente  y comentar la anterior 
+% donde aparece utf8 (tal y como est�)
+\usepackage[latin1]{inputenc}
+
+% Estilo del documento
+\usepackage{estiloTFG}
+
+\begin{document}
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{center}
+  \portada{%
+    Primera l�nea del t�tulo del trabajo%
+    \\[0.2\baselineskip]% Si no hiciera falta, comenta esta l�nea y la siguiente
+    Segunda l�nea del t�tulo%
+  }{%
+    Title in English%
+    \\[0.3\baselineskip]% Si no hiciera falta, comenta esta l�nea y la siguiente
+   Second Line of Title%
+ }{%
+   Autor/a% Poner lo que proceda
+ }{%
+   Autor o autora del trabajo%
+ }{%
+   Director/a/es/as% Poner lo que proceda
+ }{%
+    Director/a/es/as 1 del trabajo
+    \\[0.2\baselineskip]% Si no hiciera falta, comenta esta l�nea y la siguiente
+    Director/a/es/as 2 del trabajo%
+  }{%
+    Junio, 2025
+  }%
+\end{center}
+
+\cleardoublepage
+\frontmatter
+\tableofcontents*
+\cleardoublepage
+
+\selectlanguage{british}
+\chapter*{Abstract}
+\vspace*{1cm}
+\lipsum%
+
+\selectlanguage{spanish}
+\chapter*{Resumen}
+\vspace*{1cm}
+\lipsum%
+
+\mainmatter
+\chapter{Instrucciones}
+\pagestyle{ruled}%
+
+\section{Texto matem�tico}
+\subsection{Sin referencias posteriores}
+Para escribir texto dentro de una l�nea lo hacemos utilizando el
+s�mbolo del d�lar.
+\par
+Por ejemplo, la ecuaci�n $x^2-2x+1=0$ tiene una raiz doble en $x=1$.
+Las fracciones se ajustan al tama�o de la l�nea como, por ejemplo,
+$\frac{1}{2}$.
+\par
+Sin embargo, si queremos que la ecuaci�n aparezca en la l�nea
+siguiente y centrada, pero no nos interesa que aparezca numerada para
+posteriores referencias lo hacemos as�:
+\[
+  \text{La ecuaci�n}\, 2x^2-3x+1=0\;\text{tiene como ra�ces}\; x_1=1\;
+  \text{y} \; x_2=\frac{1}{2}.
+\]
+\par
+Otro par de ecuaciones:
+\[
+\frac{(\mu-1)^{n} S_{n}(x)}{\Gamma(n-x)}=\sum_{j=0}^n \frac{(\mu-1)^j
+  b_{n,j}}{n^j} \frac{(\mu-1)^{n-j} n^j Q_{n-j}(x)}{\Gamma(n-x)}.
+\]
+
+\[
+\eta= \frac{1}{2}\left( 1+\frac{\lambda (1-\mu )^2}{\mu } +\mu +
+  (1-\mu) \sqrt{\left( 1+\frac{\lambda (1-\mu)}{\mu} \right)^2+
+    4\lambda }\right).
+\]
+
+\subsection{Con referencias posteriores}
+Para poder referenciar una expresi�n matem�tica en el texto, se
+utiliza el entorno \texttt{equation} de la siguiente forma
+\begin{equation}
+  \label{eq:seg}
+  x^2+2x+1=0.
+\end{equation}
+\par
+La ecuaci�n~\eqref{eq:seg} tiene una ra�z doble en el punto $x=-1$.
+\par
+Existen varios entornos para poner varias ecuaciones alineadas. Un
+documento interesante en el se pueden ver entornos matem�ticos
+interesantes es el elaborado por Herbert
+Vo\ss~\footnote{\url{https://www.ctan.org/pkg/voss-mathmode}}. Aunque
+es un poco antiguo, sigue vigente y puede ayudar mucho a una buena
+presentaci�n de resultados matem�ticos.
+\par
+Uno de los m�s usuales es el entorno \texttt{align}, que produce
+\begin{align}
+  \label{eq:1} x+ 2y + 4z &=3, \\
+  \label{eq:2} x- 5y - 2z &=0, \\
+  x+ 3y + 7z &=2. \notag
+\end{align}
+\par
+Como se puede observar, la tercera ecuaci�n no est� numerada. Si se
+quiere que no se numere ninguna, se utiliza el entorno
+\texttt{align*}.
+\par
+Para referenciar una de esas ecuaciones, se hace de la misma forma.
+Ecuaci�n~\eqref{eq:2} o ecuaci�n~\ref{eq:2} ---si no se quiere que
+aparezca entre par�ntesis---.
+
+\section{Entornos de definiciones, teoremas, lemas, proposiciones y corolarios}
+
+\subsection{Entornos predefinidos}
+Para escribir una definici�n, teorema, corolario\textellipsis\ y posteriormente
+referenciarlo lo haremos de la siguiente forma:
+\begin{definicion} \label{def:estad}
+  Sea $\boldsymbol{X}$ una muestra aleatoria extra�da de una poblaci�n
+  modelada por la familia de distribuciones $\mathcal{F}_{\theta}$,
+  entonces considereramos que un \textbf{estad�stico}
+  $T(\boldsymbol{X})$ es una funci�n medible de las variables que
+  forman la muestra.
+\end{definicion}
+\par
+La definici�n~\ref{def:estad} se referencia en el texto tal y como
+vemos en este ejemplo.
+\par
+De la misma forma se han definido los entornos \texttt{teorema},
+\texttt{lema}, \texttt{proposicion}, \texttt{corolario}, todos ellos
+dependientes del cap�tulo, as� como se ha definido un entorno
+\texttt{demo} para las demostraciones.
+\par 
+Veamos un ejemplo:
+\par
+\newcommand{\E}[2]{\mathsf{E}_{#1} \!\left ( #2 \right )}
+\begin{teorema}[Lehmann y Scheff�]
+  \label{teo:ls}
+  Bajo las condiciones del teorema de Blackwell-Rao, si $T$ es
+  suficiente y completo, entonces $\E{}{\hat{g} \mid T}$ es el �nico
+  UMVUE.
+\end{teorema}
+\begin{demo}
+  Sean $\hat{g}_1, \hat{g}_2 \in \mathcal{U}_{g(\theta)}$, entonces
+  seg�n el Teorema de Blackwell-Rao sabemos que $\E{}{\hat{g}_1 \mid
+    T}$ y $\E{}{\hat{g}_2 \mid T}$ tambi�n pertenecen a la clase
+  $\mathcal{U}_{g(\theta)}$. Por la linealidad de la esperanza,
+  tenemos que
+  \begin{equation*}
+    \E{\theta}{\E{}{\hat{g}_1 \mid T} - \E{}{\hat{g}_2 \mid T}} = 0,~
+    \forall ~\theta \in \Theta. 
+  \end{equation*}
+  \par
+  Puesto que $T$ es completo, cualquier funci�n de $T$ con esperanza
+  nula tiene que ser necesariamente nula, por lo que se verifica que
+  \[
+  \E{}{\hat{g}_1 \mid T} - \E{}{\hat{g}_2 \mid T }=0,
+  \]
+  y, por lo tanto, $\E{}{\hat{g}_1 \mid T} = \E{}{\hat{g}_2 \mid T}$,
+  es decir, la esperanza condicionada dado $T$ de cualquier estimador
+  $\hat{g} \in \mathcal{U}_{g(\theta)}$ es siempre la misma y, en
+  consecuencia que $\E{}{\hat{g} \mid T}$ es el UMVUE ya que, si
+  aplicamos el teorema de Blackwell-Rao, tenemos que cualesquiera que
+  sean los estad�sticos insesgados de los que partimos, siempre
+  tenemos que aquel que reduce su varianza siempre es el mismo, por lo
+  que �ste necesariamente tiene que ser el �nico UMVUE.
+\end{demo}
+
+\begin{corolario}
+  Sea una muestra $X_{1},X_{2},\ldots,X_{n}$ procedente de una familia
+  de distribuciones $\{f(x;\theta ),~ \theta \in \Theta \}$ del tipo
+  exponencial uniparam�trica dada por
+  \[
+  f(\boldsymbol{x};\theta ) = h(x) \exp\{\psi (\theta
+  )T(\boldsymbol{x})+D(\theta )\}.
+  \]
+  \par
+  Si existe un estimador $\hat{g} \in \mathcal{U}(\theta )$, entonces
+  existe un �nico UMVUE dado por $\E{\theta}{\hat{g} \mid T}$.
+\end{corolario}
+\begin{demo}
+  Es evidente, ya que entonces el estad�stico
+  $T(\boldsymbol{X})=T(X_{1},X_{2},\ldots,X_{n})$ es suficiente y
+  completo, y basta aplicar el teorema de Lehmann-Scheff�.
+\end{demo}
+
+\subsection{Nuevos entornos}
+Si se quiere definir un entorno nuevo hay que incluir en el fichero de
+estilo
+\begin{verbatim}
+\newtheorem{nombre_del_entorno}{Leyenda_que_aparece}[De_quien_depende]
+\end{verbatim}
+  
+\section{Gr�ficos}
+Como compilamos con PDF\LaTeX\ solamente podremos incluir ficheros
+gr�ficos en formato \texttt{jpg}, \texttt{png} o \texttt{pdf}. �Ojo!,
+no se pueden incluir directamente ficheros PostScript. Si tienes
+necesidad de utilizar gr�ficos PostScript consulta en el correo
+electr�nico \url{freche@ual.es}.
+\par
+Para referenciarlos adecuadamente utilizaremos el entorno
+\texttt{figure}.
+\begin{figure}[h]
+  \centering 
+  % Si se compila con PDFLaTex los gr�ficos pueden estar en formato
+  % pdf, jpg o png
+  \includegraphics[width=5cm]{./imagenes/logo_facultad.pdf}
+  \caption{Logotipo de la Facultad de Ciencias Experimentales}
+  \label{fig:logo}
+\end{figure}
+\par
+De esta forma podremos referenciar la Figura~\ref{fig:logo} en
+cualquier parte del texto. Es recomendable hacerlo as� pues \LaTeX\
+colocar� la figura donde le quepa ---siguiendo un orden de preferencia
+que se puede cambiar--- y se debe evitar expresiones como <<seg�n la
+figura siguiente>> o similares.
+
+\section{Cuadros}
+Al igual que las figuras, utilizaremos el entorno flotante
+\texttt{table} para incluir los cuadros ---nombre correcto en
+castellano en lugar del habitualmente visto tabla---. Si se quiere
+cambiar la palabra Cuadro por Tabla se escribe en el pre�mbulo del
+documento:
+\begin{verbatim}
+\renewcommand{\tablename}{Tabla}
+\end{verbatim}
+\par
+Un ejemplo es el siguiente: 
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|ccc|}
+    \hline
+    $x_i$ & $n_i$ & $f_i$ & $N_i$ \\
+    \hline \hline
+    0 & 10 & & \\
+    1 & 20 & & \\
+    2 & 5 & & \\
+    3 & 15 & & \\
+    \hline
+    \multicolumn{1}{c}{} & 50 & & \multicolumn{1}{c}{}\\
+  \end{tabular}
+  \caption{Frecuencias observadas}
+  \label{tab:t1}
+\end{table}
+\par
+Rellena los huecos que faltan en el Cuadro~\ref{tab:t1}.
+\par
+Un cuadro m�s elaborado se puede construir utilizando el paquete
+\texttt{multirow}.
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|c|}{Equipo} \\
+    \hline
+    Portero& De Gea \\ \hline
+    \multirow{4}{*}{Defensas} & Mario \\
+    & Etxeita\\
+    & Nacho\\
+    & Azpilicueta\\ \hline
+    \multirow{4}{*}{Centrocampistas} & Thiago\\
+    & San Jos� \\
+    & Isco \\
+    & Cesc \\\hline
+    \multirow{2}{*}{Delanteros} & Alc�cer \\
+    & Nolito \\
+    \hline
+  \end{tabular}
+  \caption{Alineaci�n de Espa�a}
+  \label{tab:alineacion}
+\end{table}
+\par
+En el Cuadro~\ref{tab:alineacion} podemos ver el equipo inicial que
+jug� en el partido Ucrania-Espa�a clasificatorio para la Eurocopa y
+que acab� con el resultado de 0 a 1.
+
+\section{Referencias bibliogr�ficas}
+Para ir citando las referencias a la bibliograf�a que se expone al
+final de texto se utiliza el comando \texttt{cite}. As� se puede
+encontrar toda las informaci�n sobre \TeX\ en \cite{tex}. La
+bibliograf�a se presenta por orden alfab�tico y se cita como sigue:
+\begin{itemize}
+\item Los libros con el formato de \cite{abrste}.
+\item Los art�culos como aparece en \cite{khwdaa}.
+\item Los cap�tulos de libro como aparece en \cite{schwe}.
+\item Los art�culos en preimpresi�n como \cite{dom}.
+\item Las p�ginas web tal y como se puede ver en \cite{tex}. 
+\end{itemize}
+\par
+Una referencia m�s amplia sobre distintos tipos de documentos a
+referenciar se puede consultar en
+\url{https://www.bibtex.com/s/bibliography-style-base-plain/}
+
+\begin{thebibliography}{99}
+\bibitem{abrste} M. Abramowitz, I. A. Stegun. \textit{Pocketbook of
+    Mathematical Functions}. Verlag Harri Deutsch, 1984.
+\bibitem{dom} D. Dominici. Mehler--Heine type formulas for
+    Charlier and Meixner polynomials. \textit{arXiv:1406.6193v1}.
+\bibitem{khwdaa} S. F. Khwaja, A. B. Olde Daalhuis. Uniform
+    asymptotic approximations for the Meixner--Sobolev polynomials.
+    \textit{Analysis and Applications}, \textbf{10}:345--361, 2012.
+  \bibitem{schwe} B. Schweizer. Thirty years of copulas. En:
+    G. Dall{'}Aglio, S. Kotz, G. Salinetti (eds.). \textit{Advanced in
+    probability distributions with given marginals}, pp. 13--50,
+    Kluwer, 1991.
+\bibitem{tex} P�gina web de los usuarios de \TeX: \url{http://www.tug.org}.
+\end{thebibliography}
+
+% Ap�ndices, si los hubiera 
+\appendix
+\appendixpage
+
+\chapter{T�tulo del primer ap�ndice}
+\lipsum
+\chapter{T�tulo del segundo ap�ndice}
+\lipsum
+
+\end{document}

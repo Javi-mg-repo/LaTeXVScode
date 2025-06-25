@@ -1,0 +1,68 @@
+# ----------------------------------------------------
+# .gitignore para proyectos LaTeX en macOS
+# Generado el 2025-06-20
+# ----------------------------------------------------
+
+# --- Archivos generados por LaTeX (compilación) ---
+# Archivos de log, auxiliares y de tabla de contenidos
+*.aux        
+*.log       
+*.toc       
+*.lof      
+*.lot      
+*.bbl         
+*.blg        
+*.idx      
+*.ilg      
+*.ind      
+*.out       
+*.nav        
+*.snm      
+*.vrb  
+
+# Archivos de SyncTeX (para sincronización inversa/directa)
+*.synctex.gz  
+*.synctex    
+
+# Archivos de caché de referencias cruzadas
+*.spl        
+*.fls      
+*.fdb_latexmk 
+
+# Archivos temporales de editor/IDE (ej. VS Code, TeXShop, TeXmaker)
+*~
+*.bak  
+.DS_Store   
+*.latexmkrc
+
+# --- Archivos de previsualización/auxiliares de editores ---
+# Si tu editor genera PDFs temporales o imágenes para previsualización
+_minted* 
+_region* 
+*.pyg   
+
+# --- Archivos de versión finales (si se generan en el mismo directorio) ---
+# Generalmente NO se quieren subir los PDFs compilados, ya que se generan.
+# ¡PERO! Si tu PDF final es un artefacto de la release y quieres controlarlo con Git LFS,
+# entonces elimina o comenta la línea de abajo.
+TFG.pdf     
+
+# --- Archivos específicos de algunos paquetes/herramientas ---
+*.run.xml   
+*.auxlock    
+*.xdv       
+*.dvi     
+
+# --- Archivos de Travis CI (si usas CI para compilar) ---
+# build/        # Directorio de construcción de Travis (si está en la raíz)
+
+# ----------------------------------------------------
+# Archivos que *debes* incluir en tu repositorio:
+# .tex
+# .cls
+# .sty
+# .bib
+# .eps, .pdf, .png, .jpg (imágenes usadas en el documento)
+# .Rnw, .Rmd (si usas Sweave/knitr)
+# .mk (si usas Makefiles)
+# ----------------------------------------------------
